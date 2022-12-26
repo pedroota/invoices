@@ -1,7 +1,8 @@
-import { ButtonGroup, Text, Flex, useToast } from '@chakra-ui/react';
+import { ButtonGroup, Text, Flex, useToast, HStack, Box } from '@chakra-ui/react';
 import { Button } from '../../../../components/Button';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useInvoiceStore } from '../../../../stores/invoices';
+import { ChevronLeft } from 'react-feather';
 
 interface HeadingControlsInvoicesProps {
   invoice_code?: string;
@@ -39,6 +40,10 @@ export function HeadingControlsInvoices({ invoice_code }: HeadingControlsInvoice
     });
   };
 
+  const goBackDashboard = () => {
+    return navigate('/dashboard');
+  };
+
   return (
     <Flex
       alignItems="center"
@@ -48,9 +53,12 @@ export function HeadingControlsInvoices({ invoice_code }: HeadingControlsInvoice
       paddingY="6"
       borderRadius="md"
       marginY="12">
-      <Text fontSize="3xl" fontWeight="semibold" display="inline">
-        {invoice_code}
-      </Text>
+      <HStack fontSize="3xl" fontWeight="semibold">
+        <Box cursor="pointer">
+          <ChevronLeft onClick={goBackDashboard} />
+        </Box>
+        <Text>{invoice_code}</Text>
+      </HStack>
       <ButtonGroup>
         <Button variant="warning" onClick={deleteInvoice}>
           Delete
