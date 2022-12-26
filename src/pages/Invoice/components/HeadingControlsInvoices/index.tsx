@@ -52,14 +52,17 @@ export function HeadingControlsInvoices({ invoice_code }: HeadingControlsInvoice
       paddingX="6"
       paddingY="6"
       borderRadius="md"
-      marginY="12">
+      marginY="8"
+      gap="3"
+      flexWrap={{ base: 'wrap', md: 'nowrap' }}>
       <HStack fontSize="3xl" fontWeight="semibold">
         <Box cursor="pointer">
           <ChevronLeft onClick={goBackDashboard} />
         </Box>
         <Text>{invoice_code}</Text>
       </HStack>
-      <ButtonGroup>
+
+      <ButtonGroup w={{ base: '100%', md: '40%' }}>
         <Button variant="warning" onClick={deleteInvoice}>
           Delete
         </Button>

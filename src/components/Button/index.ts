@@ -5,6 +5,7 @@ interface IButtonProps {
 }
 
 export const Button = styled.button<IButtonProps>`
+  width: 100%;
   color: white;
   white-space: nowrap;
   font-weight: 600;
