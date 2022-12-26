@@ -5,6 +5,7 @@ import { DetailsInvoice } from './components/DetailsInvoice';
 import { HeadingControlsInvoices } from './components/HeadingControlsInvoices';
 import { useInvoiceStore } from '../../stores/invoices';
 import { InvoiceInterface } from '../../interfaces/invoice.interface';
+import { FooterInvoice } from './components/FooterInvoice';
 
 export function Invoice() {
   const [invoice, setInvoice] = useState<InvoiceInterface | undefined>(undefined);
@@ -22,6 +23,7 @@ export function Invoice() {
     <Container maxW="container.lg">
       <HeadingControlsInvoices invoice_code={invoice?.invoice_code} />
       <DetailsInvoice invoice={invoice} />
+      <FooterInvoice />
     </Container>
   );
 }
